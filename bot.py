@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Matcha restock watcher with LINE notifications."""
 
-from _future_ import annotations
+from __future__ import annotations
 
 import argparse
 import logging
@@ -291,5 +291,5 @@ def main() -> None:
             return
 
 
-if _name_ == "_main_":
+if __name__ == "__main__":
     main()
