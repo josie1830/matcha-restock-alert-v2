@@ -1,6 +1,6 @@
 """Marukyu Koyamaen English shop stock scraper."""
 
-from _future_ import annotations
+from __future__ import annotations
 
 import json
 import logging
@@ -12,7 +12,7 @@ from bs4 import BeautifulSoup
 
 from .common import Item, StoreError, matches_watchlist, polite_get
 
-log = logging.getLogger(_name_)
+log = logging.getLogger(__name__)
 
 STORE = "Marukyu Koyamaen"
 BASE = "https://www.marukyu-koyamaen.co.jp"
