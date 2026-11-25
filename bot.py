@@ -106,6 +106,10 @@ def run_cycle(
     if dry_run:
         return all_items
 
+    if failures or not all_items:
+        log.warning("Incomplete stock data; keeping previous state unchanged.")
+        return []
+
     restocked = state.diff(all_items)
 
     if restocked:
