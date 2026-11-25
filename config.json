@@ -1,6 +1,6 @@
 {
   "schedule": {
-    "enabled": false
+    "enabled": true
   },
   "state_file": "state.json",
   "check_interval_seconds": 300,
