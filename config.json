@@ -1,23 +1,13 @@
 {
-  "discord_webhook_url": "",
-
-  "mention": "<@&1529136275637145640>",
-
   "schedule": {
-    "enabled": true,
-    "timezone": "America/Los_Angeles",
-    "days": ["mon", "tue", "wed", "thu", "fri"],
-    "start": "00:00",
-    "end": "05:00"
+    "enabled": false
   },
-
   "state_file": "state.json",
   "check_interval_seconds": 300,
   "jitter_seconds": 30,
   "announce_startup": true,
-  "report_errors_to_discord": true,
-  "user_agent": "MatchaRestockWatcher/1.0 (personal restock notifier; contact: you@example.com)",
-
+  "report_errors_to_line": true,
+  "user_agent": "MatchaRestockWatcher/1.0",
   "stores": {
     "marukyu": {
       "enabled": true,
@@ -25,12 +15,15 @@
       "catalog_urls": [
         "https://www.marukyu-koyamaen.co.jp/english/shop/products/catalog/matcha?viewall=1"
       ],
-      "watchlist": ["Unkaku", "Wako", "Kinrin", "Aoarashi", "Isuzu"]
+      "seasonal_catalog_urls": [
+        "https://www.marukyu-koyamaen.co.jp/english/shop/products/catalog/seasonal?viewall=1"
+      ],
+      "watchlist": []
     },
     "horii": {
-      "enabled": true,
+      "enabled": false,
       "request_delay_seconds": 1.0,
-      "watchlist": ["Matcha"]
+      "watchlist": []
     }
   }
 }
