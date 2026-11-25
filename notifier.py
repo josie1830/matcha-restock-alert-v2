@@ -1,6 +1,6 @@
 """LINE notifications for the matcha restock watcher."""
 
-from _future_ import annotations
+from __future__ import annotations
 
 import logging
 import os
@@ -10,7 +10,7 @@ import requests
 
 from stores.common import Item
 
-log = logging.getLogger(_name_)
+log = logging.getLogger(__name__)
 
 LINE_PUSH_URL = "https://api.line.me/v2/bot/message/push"
 MAX_TEXT_LENGTH = 4500
