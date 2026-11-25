@@ -57,6 +57,9 @@ def _send_text(message: str) -> bool:
 
 
 def _is_priority(item: Item) -> bool:
+    if item.extra.get("priority"):
+        return True
+
     text = f"{item.name} {item.label} {item.url}".lower()
     keywords = (
         "seasonal",
@@ -76,7 +79,7 @@ def _is_priority(item: Item) -> bool:
 
 
 def notify_text(webhook_url: str, message: str) -> bool:
-    """Keep the old function signature while switching delivery to LINE."""
+    """Send a plain-text LINE notification."""
     return _send_text(message)
 
 
@@ -103,6 +106,7 @@ def notify_restocks(
     for item in items:
         if _is_priority(item):
             lines.append("🎄【季節／限定優先】")
+
         lines.append(f"✅ {item.label}")
 
         if item.price:
@@ -116,21 +120,23 @@ def notify_restocks(
     if len(message) <= MAX_TEXT_LENGTH:
         return _send_text(message)
 
-    # Split long notifications into separate LINE messages.
     chunks: list[str] = []
     current = "🍵 丸久小山園補貨通知\n\n"
 
     for line in lines[2:]:
         addition = line + "\n"
+
         if len(current) + len(addition) > MAX_TEXT_LENGTH:
             chunks.append(current.strip())
             current = "🍵 丸久小山園補貨通知（續）\n\n"
+
         current += addition
 
     if current.strip():
         chunks.append(current.strip())
 
     success = True
+
     for chunk in chunks:
         if not _send_text(chunk):
             success = False
