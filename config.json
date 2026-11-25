@@ -21,7 +21,7 @@
       "watchlist": []
     },
     "horii": {
-      "enabled": true
+      "enabled": true,
       "request_delay_seconds": 1.0,
       "watchlist": []
     }
