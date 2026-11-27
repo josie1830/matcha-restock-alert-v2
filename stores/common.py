@@ -31,7 +31,7 @@ class Item:
     detection: str = "unknown"  # which parsing strategy produced `available`
     extra: dict = field(default_factory=dict)
 
-        @property
+    @property
     def label(self) -> str:
         names = {
             "Aoarashi": "青嵐｜青嵐",
