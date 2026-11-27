@@ -256,7 +256,7 @@ def main() -> None:
         )
         print_stock_table(items)
         return
-        state = StockState(config.get("state_file", "state.json"))
+    state = StockState(config.get("state_file", "state.json"))
 
     if config.get("announce_startup", True) and not state.seeded:
         notifier.notify_text(
