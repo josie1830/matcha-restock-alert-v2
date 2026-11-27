@@ -10,7 +10,10 @@ on:
         description: "Only check and display current stock without sending notifications"
         type: boolean
         default: false
-
+  notify_current_stock:
+        description: "Send current stock list to LINE once"
+        type: boolean
+        default: false
 concurrency:
   group: matcha-restock
   cancel-in-progress: false
@@ -54,17 +57,18 @@ jobs:
         env:
           LINE_CHANNEL_ACCESS_TOKEN: ${{ secrets.LINE_CHANNEL_ACCESS_TOKEN }}
           LINE_USER_ID: ${{ secrets.LINE_USER_ID }}
-        run: |
-          if [ "${{ inputs.test_mode }}" = "true" ]; then
+        run: 
+          if [ "${{ inputs.notify_current_stock }}" = "true" ]; then
+            python bot.py --notify-current-stock
+          elif [ "${{ inputs.test_mode }}" = "true" ]; then
             python bot.py --test
           elif [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
             python bot.py --once --ignore-schedule
           else
             python bot.py --once
           fi
-
       - name: Save stock state
-        if: always() && inputs.test_mode != true
+                if: always() && inputs.test_mode != true && inputs.notify_current_stock != true
         uses: actions/cache/save@v4
         with:
           path: state.json
