@@ -47,6 +47,16 @@ class Item:
             "Wakatake": "若竹｜若竹",
             "Wako": "和光｜和光",
             "Yugen": "又玄｜又玄",
+            "Cooking Matcha (in a sifter can) - Excellent": "料理用抹茶 特撰｜料理用抹茶 特撰",
+            "Daitokuji Temple Favored Matcha Itteikisui": "一滴翠｜一滴翆",
+            "Daitokuji Temple Favored Matcha Itteikisui (GOLD)": "一滴翠 金印｜一滴翆 金印",
+            "Enshuryu School Favored Matcha Hatsu no Mori": "初之森｜初の森",
+            "Enshuryu School Favored Matcha Ichigen no Shiro": "一玄之白｜一玄の白",
+            "Gabaron Matcha": "Gabaron 抹茶｜ガバロン抹茶",
+            "Low Caffeine Matcha": "低咖啡因抹茶｜低カフェイン抹茶",
+            "Matcha Soda": "抹茶蘇打｜抹茶ソーダ",
+            "Matcha for cold water Awaraku": "泡樂｜泡楽",
+            "Matcha for cold water Suzukumo": "涼雲｜涼雲",        
         }
         display_name = names.get(self.name, self.name)
         return f"{display_name} — {self.variant}" if self.variant else display_name
