@@ -70,7 +70,8 @@ jobs:
           fi
 
       - name: Save stock state
-        if: ${{ always() && inputs.test_mode != true && inputs.notify_current_stock != true }}        uses: actions/cache/save@v4
+        if: ${{ always() && inputs.test_mode != true && inputs.notify_current_stock != true }}        
+        uses: actions/cache/save@v4
         with:
           path: state.json
           key: matcha-state-${{ github.run_id }}
