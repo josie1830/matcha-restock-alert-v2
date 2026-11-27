@@ -200,6 +200,7 @@ def main() -> None:
     parser.add_argument("--config", default=DEFAULT_CONFIG_PATH)
     parser.add_argument("--once", action="store_true")
     parser.add_argument("--test", action="store_true")
+    parser.add_argument("--notify-current-stock", action="store_true")
     parser.add_argument("--dump", metavar="STORE")
     parser.add_argument("--ignore-schedule", action="store_true")
     parser.add_argument("--verbose", "-v", action="store_true")
