@@ -266,7 +266,17 @@ def fetch(session, config: dict) -> list[Item]:
     watchlist = config.get("watchlist") or []
     items: list[Item] = []
 
-    for url, (name, from_seasonal_catalog) in sorted(products.items()):
+        def priority_order(product):
+        url, (name, _) = product
+        identity = f"{name} {url}".lower()
+        is_seiya = "seiya" in identity or "聖夜" in identity
+        return (0 if is_seiya else 1, url)
+
+    # Check Seiya no Shiro first on every cycle.
+    for url, (name, from_seasonal_catalog) in sorted(
+        products.items(),
+        key=priority_order,
+    ):
         if is_excluded(name):
             continue
 
