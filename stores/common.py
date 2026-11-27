@@ -66,7 +66,20 @@ class Item:
             "Omotesenke School Yuyusai Iemoto Favored Matcha Saiho no Mukashi": "彩鳳之昔｜彩鳳の昔",
             "Omotesenke School Yuyusai Iemoto Favored Matcha Yukyu no Shiro": "悠久之白｜悠久の白",
             "Shokokuji Temple Favored Matcha Joko": "常光｜常光",
-            "Shokokuji Temple Favored Matcha Mannen no Midori": "萬年之翠｜萬年の翠",        
+            "Shokokuji Temple Favored Matcha Mannen no Midori": "萬年之翠｜萬年の翠",      
+            "Sohenryu School Favored Matcha Kokonoe no Mukashi": "九重之昔｜九重の昔",
+            "Sohenryu School Favored Matcha Miya no Shiro": "宮之白｜宮の白",
+            "Sohenryu School Favored Matcha Tomo no Shiro": "友之白｜友の白",
+            "Tsubokiri Matcha": "壺切抹茶｜壺切抹茶",
+            "Urasenke School Favored Matcha Keichi no Mukashi": "慶知之昔｜慶知の昔",
+            "Urasenke School Favored Matcha Kiun": "喜雲｜喜雲",
+            "Urasenke School Favored Matcha Seijo no Shiro": "清淨之白｜清浄の白",
+            "Urasenke School Favored Matcha Shohaku": "松柏｜松柏",
+            "Urasenke School Favored Matcha Shoka no Mukashi": "松花之昔｜松花の昔",
+            "Urasenke School Favored Matcha Shoun no Mukashi": "松雲之昔｜松雲の昔",
+            "Urasenke School Favored Matcha Tama no Shiro": "珠之白｜珠の白",
+            "Yabunouchi School Favored Matcha Ao no Mori": "青之森｜青の森",
+            "Yabunouchi School Favored Matcha Seiwa no Shiro": "清和之白｜清和の白",        
         }
         display_name = names.get(self.name, self.name)
         return f"{display_name} — {self.variant}" if self.variant else display_name
