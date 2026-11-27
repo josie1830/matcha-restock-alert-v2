@@ -220,14 +220,19 @@ def main() -> None:
 
     session = build_session(config)
     if args.notify_current_stock:
-        items = run_cycle(
-            config,
-            StockState(config.get("state_file", "state.json")),
-            session,
-            dry_run=True,
-        )
-        in_stock = [item for item in items if item.available]
+        items = []
+        try:
+            for name in STORES:
+                items.extend(poll_store(name, session, config))
+        except Exception as exc:
+            log.exception("Stock check failed.")
+            sys.exit(f"Stock check failed: {exc}")
+
+        if not items:
+            sys.exit("No product data found; no LINE message sent.")
+
         print_stock_table(items)
+        in_stock = [item for item in items if item.available]
 
         if in_stock:
             sent = notifier.notify_restocks("", in_stock)
@@ -241,7 +246,8 @@ def main() -> None:
             sys.exit("LINE notification failed.")
 
         return
-        if args.test:
+
+    if args.test:
         items = run_cycle(
             config,
             StockState(config.get("state_file", "state.json")),
@@ -250,8 +256,7 @@ def main() -> None:
         )
         print_stock_table(items)
         return
-
-    state = StockState(config.get("state_file", "state.json"))
+        state = StockState(config.get("state_file", "state.json"))
 
     if config.get("announce_startup", True) and not state.seeded:
         notifier.notify_text(
