@@ -219,8 +219,29 @@ def main() -> None:
         return
 
     session = build_session(config)
+    if args.notify_current_stock:
+        items = run_cycle(
+            config,
+            StockState(config.get("state_file", "state.json")),
+            session,
+            dry_run=True,
+        )
+        in_stock = [item for item in items if item.available]
+        print_stock_table(items)
 
-    if args.test:
+        if in_stock:
+            sent = notifier.notify_restocks("", in_stock)
+        else:
+            sent = notifier.notify_text(
+                "",
+                "🍵 LINE 通知測試成功！目前沒有偵測到有庫存的商品。",
+            )
+
+        if not sent:
+            sys.exit("LINE notification failed.")
+
+        return
+        if args.test:
         items = run_cycle(
             config,
             StockState(config.get("state_file", "state.json")),
