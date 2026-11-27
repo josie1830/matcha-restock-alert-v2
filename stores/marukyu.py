@@ -266,7 +266,7 @@ def fetch(session, config: dict) -> list[Item]:
     watchlist = config.get("watchlist") or []
     items: list[Item] = []
 
-        def priority_order(product):
+    def priority_order(product):
         url, (name, _) = product
         identity = f"{name} {url}".lower()
         is_seiya = "seiya" in identity or "聖夜" in identity
