@@ -79,7 +79,9 @@ class Item:
             "Urasenke School Favored Matcha Shoun no Mukashi": "松雲之昔｜松雲の昔",
             "Urasenke School Favored Matcha Tama no Shiro": "珠之白｜珠の白",
             "Yabunouchi School Favored Matcha Ao no Mori": "青之森｜青の森",
-            "Yabunouchi School Favored Matcha Seiwa no Shiro": "清和之白｜清和の白",        
+            "Yabunouchi School Favored Matcha Seiwa no Shiro": "清和之白｜清和の白",     
+            "Yabunouchi School Iemoto Favored Matcha Hekiun no Mukashi": "碧雲之昔｜碧雲の昔",
+            "Yabunouchi School Iemoto Favored Matcha Yoyo no Shiro": "葉葉之白｜葉々の白",
         }
         display_name = names.get(self.name, self.name)
         return f"{display_name} — {self.variant}" if self.variant else display_name
