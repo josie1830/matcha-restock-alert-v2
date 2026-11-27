@@ -56,7 +56,17 @@ class Item:
             "Low Caffeine Matcha": "低咖啡因抹茶｜低カフェイン抹茶",
             "Matcha Soda": "抹茶蘇打｜抹茶ソーダ",
             "Matcha for cold water Awaraku": "泡樂｜泡楽",
-            "Matcha for cold water Suzukumo": "涼雲｜涼雲",        
+            "Matcha for cold water Suzukumo": "涼雲｜涼雲",      
+            "Mushakojisenke School Favored Matcha Shofu": "祥風｜祥風",
+            "Mushakojisenke School Favored Matcha Suisho no Mukashi": "翠松之昔｜翠松の昔",
+            "Omotesenke School Favored Matcha Kissho": "吉祥｜吉祥",
+            "Omotesenke School Favored Matcha Myofu no Mukashi": "妙風之昔｜妙風の昔",
+            "Omotesenke School Favored Matcha Saiun": "彩雲｜彩雲",
+            "Omotesenke School Favored Matcha Sanyu no Shiro": "三友之白｜三友の白",
+            "Omotesenke School Yuyusai Iemoto Favored Matcha Saiho no Mukashi": "彩鳳之昔｜彩鳳の昔",
+            "Omotesenke School Yuyusai Iemoto Favored Matcha Yukyu no Shiro": "悠久之白｜悠久の白",
+            "Shokokuji Temple Favored Matcha Joko": "常光｜常光",
+            "Shokokuji Temple Favored Matcha Mannen no Midori": "萬年之翠｜萬年の翠",        
         }
         display_name = names.get(self.name, self.name)
         return f"{display_name} — {self.variant}" if self.variant else display_name
