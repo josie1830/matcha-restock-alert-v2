@@ -31,9 +31,25 @@ class Item:
     detection: str = "unknown"  # which parsing strategy produced `available`
     extra: dict = field(default_factory=dict)
 
-    @property
+        @property
     def label(self) -> str:
-        return f"{self.name} — {self.variant}" if self.variant else self.name
+        names = {
+            "Aoarashi": "青嵐｜青嵐",
+            "Chigi no Shiro": "千木之白｜千木の白",
+            "Choan": "長安｜長安",
+            "Christmas Limited Edition Matcha Seiya no Shiro": "聖夜之白｜聖夜の白",
+            "Kiwami Choan": "極長安｜極長安",
+            "Eiju": "永壽｜永寿",
+            "Isuzu": "五十鈴｜五十鈴",
+            "Kinrin": "金輪｜金輪",
+            "Tenju": "天授｜天授",
+            "Unkaku": "雲鶴｜雲鶴",
+            "Wakatake": "若竹｜若竹",
+            "Wako": "和光｜和光",
+            "Yugen": "又玄｜又玄",
+        }
+        display_name = names.get(self.name, self.name)
+        return f"{display_name} — {self.variant}" if self.variant else display_name
 
 
 class StoreError(RuntimeError):
