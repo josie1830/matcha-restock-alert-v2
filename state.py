@@ -103,7 +103,7 @@ class StockState:
             previous = self.data.get(item.key, {})
             was_available = previous.get("available")
 
-                newly_discovered_in_stock = (
+            newly_discovered_in_stock = (
                 not first_run and not previous and item.available
             )
             just_restocked = (
@@ -127,7 +127,7 @@ class StockState:
                 record["price"] = item.price
 
             # Only touches the file when a restock genuinely happens.
-                last_restock = (
+            last_restock = (
                 now
                 if just_restocked or newly_discovered_in_stock
                 else previous.get("last_restock")
